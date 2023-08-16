@@ -100,7 +100,7 @@ const Home = () => {
                 PARAMS: "None"
 			})//especificamos la url donde vamos a buscar info
 			let data = await response.json()
-			console.log(data);    //llama a la funcion setLista y le pasa como argumento data( que es un objeto label y done)
+			setLista(data);    //llama a la funcion setLista y le pasa como argumento data( que es un objeto label y done)
 			
 	
 		} catch (error) {
@@ -127,14 +127,11 @@ async function eliminarUsuarioTareas() {
 	}
 }
 
-	
-
-
 
 
 function borrarTodo() {
-// 	setLista([])
-// 	eliminarUsuarioTareas()
+setLista([])
+eliminarUsuarioTareas()
  }
 	
 return (
@@ -161,7 +158,7 @@ return (
 				{lista.length ===0 ? "No hay tareas pendientes. Agregar tareas" : lista.length + " tareas restantes"} 
 			</div>
 			<div>
-				<button onClick={borrarTodo}>Borrar todas las tareas</button>
+				<button className="btn btn-primary" onClick={borrarTodo}>Borrar todas las tareas</button>
 			</div>
 			
 		</div>
